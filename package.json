@@ -1,0 +1,46 @@
+{
+  "name": "@devium/optimagium",
+  "version": "0.0.1",
+  "description": "A simple HTTP service for minifying and resizing images",
+  "homepage": "https://github.com/vanodevium/optimagium#readme",
+  "bugs": {
+    "url": "https://github.com/vanodevium/optimagium/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vanodevium/optimagium.git"
+  },
+  "license": "SEE LICENSE IN LICENSE.md",
+  "author": {
+    "name": "Vano Devium",
+    "email": "vano@devium.me",
+    "url": "https://devium.me"
+  },
+  "type": "module",
+  "main": "server.js",
+  "bin": "./bin/optimagium.js",
+  "scripts": {
+    "biome": "biome check --write",
+    "fix": "prettier --write bin lib",
+    "start": "nodemon bin/optimagium.js server"
+  },
+  "dependencies": {
+    "@hono/node-server": "1.13.8",
+    "@sindresorhus/is": "7.0.1",
+    "commander": "13.1.0",
+    "consola": "3.4.0",
+    "dotenv": "16.4.7",
+    "file-type": "20.4.0",
+    "hono": "4.7.4",
+    "imagemin": "9.0.1",
+    "imagemin-gifsicle": "7.0.0",
+    "imagemin-jpegtran": "8.0.0",
+    "imagemin-optipng": "8.0.0",
+    "imagemin-webp": "8.0.0",
+    "is-stream": "4.0.1",
+    "mime-db": "1.53.0",
+    "path-type": "6.0.0",
+    "read-pkg": "9.0.1",
+    "sharp": "0.33.5"
+  }
+}

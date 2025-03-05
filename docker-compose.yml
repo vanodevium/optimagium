@@ -1,0 +1,29 @@
+name: "optimagium"
+
+services:
+
+  optimagium:
+    env_file: .env
+    build: .
+    restart: unless-stopped
+    volumes:
+      - "./bin:/app/bin"
+      - "./lib:/app/lib"
+      - "./images:/app/images"
+      - "/app/node_modules"
+    command: "node bin/optimagium server --images=./images"
+    networks:
+      - optimagium
+      - traefik
+    labels:
+      - "traefik.enable=true"
+      - "traefik.docker.network=traefik"
+      - "traefik.http.routers.optimagium.rule=Host(`${HOST}`)"
+      - "traefik.http.services.optimagium.loadbalancer.server.port=3000"
+
+networks:
+  optimagium:
+    name: "optimagium"
+    driver: bridge
+  traefik:
+    external: true
